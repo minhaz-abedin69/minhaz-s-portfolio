@@ -6,7 +6,12 @@ const Database = require("better-sqlite3");
 
 const PORT = process.env.PORT || 3000;
 const ROOT = __dirname;
-const db = new Database(path.join(ROOT, "data", "portfolio.db"));
+
+const DATA_DIR = path.join(ROOT, "data");
+if (!fs.existsSync(DATA_DIR)) {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+}
+const db = new Database(path.join(DATA_DIR, "portfolio.db"));
 
 db.pragma("journal_mode = WAL");
 
@@ -299,5 +304,6 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, "0.0.0.0", () => {
   console.log(`Portfolio running at http://localhost:${PORT}`);
 });
+
 
 
