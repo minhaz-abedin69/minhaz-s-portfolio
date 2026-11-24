@@ -49,6 +49,19 @@ function verifyPassword(password, stored) {
   );
 }
 
+const adminEmail = String(process.env.ADMIN_EMAIL || "").trim().toLowerCase();
+const adminPassword = String(process.env.ADMIN_PASSWORD || "");
+
+if (adminEmail && adminPassword.length >= 8) {
+  const existingAdmin = db.prepare("SELECT id FROM admins WHERE email = ?").get(adminEmail);
+
+  if (!existingAdmin) {
+    db.prepare("INSERT INTO admins (email, password_hash) VALUES (?, ?)")
+      .run(adminEmail, hashPassword(adminPassword));
+    console.log("[admin] Admin account created:", adminEmail);
+  }
+}
+
 function createSession(adminId) {
   const token = crypto.randomBytes(32).toString("hex");
   sessions.set(token, {
@@ -304,6 +317,7 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, "0.0.0.0", () => {
   console.log(`Portfolio running at http://localhost:${PORT}`);
 });
+
 
 
 
