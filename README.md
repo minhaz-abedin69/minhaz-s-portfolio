@@ -1,14 +1,14 @@
-# Minhaz Abedin: portfolio
+﻿# Minhaz Abedin: portfolio
 
 Plain HTML, CSS and JavaScript. No framework, no build step, no dependencies.
 
 ## Pages
-`index.html` (Profile) · `projects.html` · `people.html` · `library.html` · `contact.html` · `404.html`
+`index.html` (Profile) Â· `projects.html` Â· `people.html` Â· `library.html` Â· `contact.html` Â· `404.html`
 
 ## Editing content
 Everything lives in **`js/data.js`**. Pages render from it.
 
-| To add…            | Edit                | Notes |
+| To addâ€¦            | Edit                | Notes |
 |--------------------|---------------------|-------|
 | a project          | `projects`          | `featured: true` gives it the large card and puts it on the Profile page |
 | a person           | `people`            | schema is documented in the file; the page shows an empty state until you add someone |
@@ -114,3 +114,4 @@ from the site or sitemap. A password prompt would add nothing here, because it c
 * The repository name defaults to `portfolio` on branch `main`; change it in "Connect GitHub" if yours differs.
 * If you change the same file elsewhere between loading the panel and publishing, GitHub refuses the stale write and
   the panel asks you to reload instead of overwriting.
+
