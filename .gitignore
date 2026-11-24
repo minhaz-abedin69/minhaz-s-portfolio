@@ -1,0 +1,14 @@
+﻿node_modules/
+data/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+admin.html.backup
+server.js.backup
+
+*.before-*
+*.backup
+
+_archive/

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minhaz-abedin69.github.io/portfolio/sitemap.xml
